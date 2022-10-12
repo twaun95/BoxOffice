@@ -20,13 +20,6 @@ object Google {
     const val MATERIAL                    = "com.google.android.material:material:${Versions.MATERIAL}"
 }
 
-object Libraries {
-    const val RETROFIT                    = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
-    const val RETROFIT_CONVERTER_GSON     = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
-    const val OKHTTP                      = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
-    const val OKHTTP_LOGGING_INTERCEPTOR  = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
-}
-
 object UnitTest {
     const val JUNIT                       = "junit:junit:${Versions.JUNIT}"
 }
@@ -34,4 +27,12 @@ object UnitTest {
 object AndroidTest {
     const val ANDROID_JUNIT               = "junit:junit:${Versions.ANDROID_JUNIT}"
     const val ESPRESSO_CORE               = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE}"
+}
+
+object Libraries {
+    const val RETROFIT                    = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
+    const val RETROFIT_CONVERTER_GSON     = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
+    const val OKHTTP                      = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
+    const val OKHTTP_LOGGING_INTERCEPTOR  = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
+    const val TIMBER                      = "com.jakewharton.timber:timber:${Versions.TIMBER}"
 }

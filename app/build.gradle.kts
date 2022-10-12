@@ -46,11 +46,11 @@ dependencies {
     implementation(AndroidX.CONSTRAINT_LAYOUT)
     implementation(Google.MATERIAL)
 
-    testImplementation(UnitTest.JUNIT)
-
     implementation(Google.HILT_ANDROID)
     kapt(Google.HILT_ANDROID_COMPILER)
+    implementation(Libraries.TIMBER)
 
+    testImplementation(UnitTest.JUNIT)
     androidTestImplementation(AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
 }
