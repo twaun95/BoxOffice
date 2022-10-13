@@ -9,7 +9,8 @@ object AndroidX {
     const val APP_COMPAT                  = "androidx.appcompat:appcompat:${Versions.APP_COMPAT}"
     const val CORE_KTX                    = "androidx.core:core-ktx:${Versions.CORE_KTX}"
     const val CONSTRAINT_LAYOUT           = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
-    const val LIFECYCLE_RUNTIME_KTX       = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_KTX}"
+    const val LIFECYCLE_RUNTIME_KTX       = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}"
+    const val VIEW_MODEL                   = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
 }
 
 object Google {
