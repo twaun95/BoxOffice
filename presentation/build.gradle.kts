@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
@@ -9,21 +9,19 @@ android {
     compileSdk = Configs.COMPILE_SDK
 
     defaultConfig {
-        applicationId = "com.twaun95.cleanarchitecture_hilt_kts"
         minSdk = Configs.MIN_SDK
         targetSdk = Configs.TARGET_SDK
-        versionCode = Configs.VERSION_CODE
-        versionName = Configs.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -34,10 +32,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
-    implementation(project(":presentation"))
 
     implementation(AndroidX.CORE_KTX)
     implementation(AndroidX.APP_COMPAT)
