@@ -1,11 +1,12 @@
 object Versions {
-    const val GRADLE = "7.1.2"
+    const val GRADLE = "7.2.1"
 
     // Kotlin
     const val KOTLIN_VERSION = "1.6.10"
     const val KOTLIN_COROUTINE = "1.5.1"
 
     // Android JetPack
+    const val ACTIVITY = "1.4.0"
     const val APP_COMPAT = "1.4.1"
     const val CONSTRAINT_LAYOUT = "2.1.3"
     const val LIFECYCLE = "2.4.1"

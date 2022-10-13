@@ -43,6 +43,7 @@ dependencies {
     implementation(AndroidX.APP_COMPAT)
     implementation(AndroidX.CONSTRAINT_LAYOUT)
     implementation(Google.MATERIAL)
+    implementation(AndroidX.VIEW_MODEL)
 
     implementation(Google.HILT_ANDROID)
     kapt(Google.HILT_ANDROID_COMPILER)

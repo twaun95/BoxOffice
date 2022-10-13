@@ -39,6 +39,7 @@ android {
 
 dependencies {
 
+    implementation(AndroidX.ACTIVITY)
     implementation(AndroidX.APP_COMPAT)
     implementation(AndroidX.CORE_KTX)
     implementation(Google.MATERIAL)
