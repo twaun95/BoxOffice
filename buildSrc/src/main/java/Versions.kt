@@ -14,7 +14,7 @@ object Versions {
 
     // Google
     const val HILT = "2.40.5"
-    const val MATERIAL = "1.4.0"
+    const val MATERIAL = "1.5.0"
 
     // UnitTest
     const val JUNIT = "4.13.2"
