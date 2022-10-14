@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     id("dagger.hilt.android.plugin")
@@ -14,8 +16,9 @@ android {
         targetSdk = Configs.TARGET_SDK
         versionCode = Configs.VERSION_CODE
         versionName = Configs.VERSION_NAME
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", gradleLocalProperties(rootDir).getProperty("api_key"))
     }
 
     buildTypes {
