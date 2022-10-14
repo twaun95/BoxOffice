@@ -44,6 +44,7 @@ android {
 
 dependencies {
     implementation(project(":presentation"))
+    implementation(project(":data"))
 
     implementation(AndroidX.CORE_KTX)
     implementation(AndroidX.APP_COMPAT)
