@@ -1,7 +1,7 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
@@ -11,22 +11,19 @@ android {
     compileSdk = Configs.COMPILE_SDK
 
     defaultConfig {
-        applicationId = "com.twaun95.cleanarchitecture_hilt_kts"
         minSdk = Configs.MIN_SDK
         targetSdk = Configs.TARGET_SDK
-        versionCode = Configs.VERSION_CODE
-        versionName = Configs.VERSION_NAME
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "API_KEY", gradleLocalProperties(rootDir).getProperty("api_key"))
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -37,31 +34,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        dataBinding = true
-    }
 }
 
 dependencies {
-    implementation(project(":presentation"))
-    implementation(project(":data"))
-    implementation(project(":domain"))
-
-    implementation(AndroidX.CORE_KTX)
-    implementation(AndroidX.APP_COMPAT)
-    implementation(AndroidX.CONSTRAINT_LAYOUT)
-    implementation(Google.MATERIAL)
-    implementation(AndroidX.VIEW_MODEL)
 
     implementation(Google.HILT_ANDROID)
     kapt(Google.HILT_ANDROID_COMPILER)
+
+    implementation(Libraries.TIMBER)
 
     implementation(Libraries.RETROFIT)
     implementation(Libraries.RETROFIT_CONVERTER_GSON)
     implementation(Libraries.OKHTTP)
     implementation(Libraries.OKHTTP_LOGGING_INTERCEPTOR)
-
-    implementation(Libraries.TIMBER)
 
     testImplementation(UnitTest.JUNIT)
     androidTestImplementation(AndroidTest.ANDROID_JUNIT)
