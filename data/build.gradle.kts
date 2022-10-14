@@ -1,14 +1,18 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
-    compileSdk = 32
+    compileSdk = Configs.COMPILE_SDK
 
     defaultConfig {
-        minSdk = 26
-        targetSdk = 32
+        minSdk = Configs.MIN_SDK
+        targetSdk = Configs.TARGET_SDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -33,11 +37,15 @@ android {
 }
 
 dependencies {
+    implementation(Google.HILT_ANDROID)
+    kapt(Google.HILT_ANDROID_COMPILER)
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("com.google.android.material:material:1.6.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(Libraries.RETROFIT)
+    implementation(Libraries.RETROFIT_CONVERTER_GSON)
+    implementation(Libraries.OKHTTP)
+    implementation(Libraries.OKHTTP_LOGGING_INTERCEPTOR)
+
+    testImplementation(UnitTest.JUNIT)
+    androidTestImplementation(AndroidTest.ANDROID_JUNIT)
+    androidTestImplementation(AndroidTest.ESPRESSO_CORE)
 }
