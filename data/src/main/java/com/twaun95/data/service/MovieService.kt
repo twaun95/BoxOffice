@@ -6,6 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MovieService {
+
+    //TODO 쿼리, 패뜨 인지 판단
     @GET("/boxoffice/searchDailyBoxOfficeList.json")
     suspend fun getBoxOffice(
         @Query("key") key : String,

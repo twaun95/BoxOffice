@@ -9,13 +9,24 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
     private const val API_KEY = BuildConfig.API_KEY
-    private const val BASE_URL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest"
+    private const val BASE_URL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/"
+    private const val TIME_OUT_COUNT : Long = 10
+
+    @Provides
+    @Singleton
+    fun provideClient(): OkHttpClient  {
+        return OkHttpClient.Builder()
+            .connectTimeout(TIME_OUT_COUNT, TimeUnit.SECONDS)
+            .readTimeout(TIME_OUT_COUNT, TimeUnit.SECONDS)
+            .build()
+    }
 
     @Provides
     @Singleton
@@ -29,7 +40,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideBoxOffice(retrofit: Retrofit): MovieService {
+    fun provideMovieService(retrofit: Retrofit): MovieService {
         return retrofit.create(MovieService::class.java)
     }
 }

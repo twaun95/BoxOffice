@@ -38,6 +38,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
 
     implementation(AndroidX.ACTIVITY)
     implementation(AndroidX.APP_COMPAT)
