@@ -1,5 +1,6 @@
 package com.twaun95.presentation.ui.main
 
+import android.os.Bundle
 import androidx.activity.viewModels
 import com.twaun95.presentation.R
 import com.twaun95.presentation.base.BaseActivity
@@ -13,8 +14,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun initView() {
         super.initView()
-
-        Timber.d("test: ${viewModel.test}")
+        binding.viewModel = viewModel
     }
 
     override fun setEvent() {
