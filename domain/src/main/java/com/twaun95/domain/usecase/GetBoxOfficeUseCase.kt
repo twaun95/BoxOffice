@@ -10,9 +10,8 @@ class GetBoxOfficeUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(
-        key: String,
         date: String
     ) : Result<List<MovieEntity>> {
-        return movieRepository.getBoxOffice(key, date)
+        return movieRepository.getBoxOffice(date)
     }
 }

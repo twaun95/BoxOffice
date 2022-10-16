@@ -1,6 +1,7 @@
 package com.twaun95.cleanarchitecture_hilt_kts.di
 
 import com.twaun95.cleanarchitecture_hilt_kts.BuildConfig
+import com.twaun95.data.model.APIKey
 import com.twaun95.data.service.MovieService
 import dagger.Module
 import dagger.Provides
@@ -15,9 +16,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    private const val API_KEY = BuildConfig.API_KEY
-    private const val BASE_URL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/"
-    private const val TIME_OUT_COUNT : Long = 10
+    private const val BASE_URL = "http://www.kobis.or.kr/"
+    private const val TIME_OUT_COUNT : Long = 50
 
     @Provides
     @Singleton
@@ -42,5 +42,11 @@ object NetworkModule {
     @Singleton
     fun provideMovieService(retrofit: Retrofit): MovieService {
         return retrofit.create(MovieService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun getAPIKey(): APIKey {
+        return APIKey(key = BuildConfig.API_KEY)
     }
 }

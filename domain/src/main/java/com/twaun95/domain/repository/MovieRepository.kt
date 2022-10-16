@@ -4,6 +4,5 @@ import com.twaun95.domain.model.MovieEntity
 import com.twaun95.domain.model.Result
 
 interface MovieRepository {
-    suspend fun getBoxOffice(key: String, date: String) : Result<List<MovieEntity>>
-    suspend fun getMovieDetail()
+    suspend fun getBoxOffice(date: String) : Result<List<MovieEntity>>
 }
