@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface MovieService {
 
-    @GET("/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json")
+    @GET("kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json")
     suspend fun getBoxOffice(
         @Query("key") key : String,
         @Query("targetDt") date : String,

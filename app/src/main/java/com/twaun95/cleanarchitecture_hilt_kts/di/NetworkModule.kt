@@ -10,6 +10,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -17,12 +18,23 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
     private const val BASE_URL = "http://www.kobis.or.kr/"
-    private const val TIME_OUT_COUNT : Long = 50
+    private const val TIME_OUT_COUNT : Long = 30
 
     @Provides
     @Singleton
     fun provideClient(): OkHttpClient  {
         return OkHttpClient.Builder()
+            .addNetworkInterceptor {
+                it.proceed(
+                    it.request()
+                        .newBuilder()
+                        .build()
+                ).also { response ->
+                    Timber.d("[RESTFUL]Status Code: ${response.code}")
+                    Timber.d("[RESTFUL]IsSuccessFul: ${response.isSuccessful}")
+                    Timber.d("[RESTFUL]${response.peekBody(4096).string()}")
+                }
+            }
             .connectTimeout(TIME_OUT_COUNT, TimeUnit.SECONDS)
             .readTimeout(TIME_OUT_COUNT, TimeUnit.SECONDS)
             .build()
