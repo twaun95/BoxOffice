@@ -1,5 +1,6 @@
 package com.twaun95.cleanarchitecture_hilt_kts.di
 
+import com.google.gson.GsonBuilder
 import com.twaun95.cleanarchitecture_hilt_kts.BuildConfig
 import com.twaun95.data.model.APIKey
 import com.twaun95.data.service.MovieService
@@ -30,9 +31,9 @@ object NetworkModule {
                         .newBuilder()
                         .build()
                 ).also { response ->
-                    Timber.d("[RESTFUL]Status Code: ${response.code}")
-                    Timber.d("[RESTFUL]IsSuccessFul: ${response.isSuccessful}")
-                    Timber.d("[RESTFUL]${response.peekBody(4096).string()}")
+                    Timber.d("Response Code: ${response.code}")
+                    Timber.d("Response IsSuccessFul: ${response.isSuccessful}")
+                    Timber.d("Response Body: ${response.peekBody(4096).string()}")
                 }
             }
             .connectTimeout(TIME_OUT_COUNT, TimeUnit.SECONDS)
@@ -45,7 +46,9 @@ object NetworkModule {
     fun provideRetrofit(client: OkHttpClient) : Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(
+                GsonBuilder().serializeNulls().create()
+            ))
             .client(client)
             .build()
     }

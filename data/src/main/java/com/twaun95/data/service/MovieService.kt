@@ -1,5 +1,6 @@
 package com.twaun95.data.service
 
+import com.twaun95.data.model.BoxOfficeResponse
 import com.twaun95.data.model.BoxOfficeResult
 import retrofit2.Response
 import retrofit2.http.GET
@@ -15,5 +16,5 @@ interface MovieService {
         @Query("multiMovieYn") a : String? = null,
         @Query("repNationCd") b : String? = null,
         @Query("wideAreaCd") c : String? = null
-    ) : Response<BoxOfficeResult>
+    ) : Response<BoxOfficeResponse>
 }

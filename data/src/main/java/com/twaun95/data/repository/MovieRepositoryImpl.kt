@@ -15,27 +15,17 @@ class MovieRepositoryImpl @Inject constructor(
     private val apiKey: APIKey
 ) : MovieRepository {
     override suspend fun getBoxOffice(date: String) : Result<List<MovieEntity>> {
-        Timber.d("Taewaun ${apiKey.key}")
-        Timber.d("Taewaun $date")
-
         val response = movieService.getBoxOffice(apiKey.key, date)
 
         return try {
             if (response.isSuccessful) {
-                Timber.d("Taewaun success${response.code()}")
-                Timber.d("Taewaun success${response.body()!!}")
-
-                return Result.Success(response.body()!!.dailyBoxOfficeList!!.map {
+                return Result.Success(response.body()!!.boxOfficeResult.dailyBoxOfficeList!!.map {
                     DailyBoxOffice.toMovieEntity(it)
                 })
             } else {
-                Timber.d("Taewaun fail")
-
                 Result.Fail(IllegalArgumentException("영화 불러오기 실패."))
             }
         } catch (e: Exception) {
-            Timber.d("Taewaun e ${e.message}")
-
             Result.Fail(e)
         }
     }
