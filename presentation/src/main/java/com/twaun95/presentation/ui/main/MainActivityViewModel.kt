@@ -1,6 +1,9 @@
 package com.twaun95.presentation.ui.main
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.twaun95.domain.model.MovieEntity
 import com.twaun95.domain.model.Result
 import com.twaun95.domain.usecase.GetBoxOfficeUseCase
 import com.twaun95.presentation.base.BaseViewModel
@@ -14,7 +17,9 @@ class MainActivityViewModel @Inject constructor(
     private val getBoxOfficeUseCase: GetBoxOfficeUseCase
 ) : BaseViewModel() {
 
-    // boxofficelist
+    private val _dailyBoxOffice = MutableLiveData(listOf<MovieEntity>())
+    val dailyBoxOffice: LiveData<List<MovieEntity>>
+        get() = _dailyBoxOffice
 
     fun getBoxOfficeList() {
         viewModelScope.launch {
@@ -22,7 +27,8 @@ class MainActivityViewModel @Inject constructor(
             val result = getBoxOfficeUseCase("20210102")
             when(result) {
                 is Result.Success ->{
-                    Timber.d(result.data.toString())
+                    _dailyBoxOffice.value = result.data
+                    Timber.d("${_dailyBoxOffice.value}")
                 }
                 is Result.Fail -> {
                     Timber.d("${result.exception}")
