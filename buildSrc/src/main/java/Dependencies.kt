@@ -37,4 +37,5 @@ object Libraries {
     const val OKHTTP                      = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
     const val OKHTTP_LOGGING_INTERCEPTOR  = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
     const val TIMBER                      = "com.jakewharton.timber:timber:${Versions.TIMBER}"
+    const val LOTTIE                      = "com.airbnb.android:lottie:${Versions.LOTTIE}"
 }

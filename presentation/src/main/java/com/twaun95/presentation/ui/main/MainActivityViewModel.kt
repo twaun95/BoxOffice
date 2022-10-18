@@ -14,17 +14,21 @@ class MainActivityViewModel @Inject constructor(
     private val getBoxOfficeUseCase: GetBoxOfficeUseCase
 ) : BaseViewModel() {
 
+    // boxofficelist
+
     fun getBoxOfficeList() {
         viewModelScope.launch {
+            startLoading()
             val result = getBoxOfficeUseCase("20210102")
             when(result) {
                 is Result.Success ->{
                     Timber.d(result.data.toString())
                 }
                 is Result.Fail -> {
-                    Timber.d("Taewaun ${result.exception}")
+                    Timber.d("${result.exception}")
                 }
             }
+            stopLoading()
         }
     }
 }

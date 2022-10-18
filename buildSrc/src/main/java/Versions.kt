@@ -27,5 +27,6 @@ object Versions {
     // 3rd-party Libraries
     const val RETROFIT = "2.7.1"
     const val OKHTTP = "4.3.1"
-    const val TIMBER ="5.0.1"
+    const val TIMBER = "5.0.1"
+    const val LOTTIE = "5.2.0"
 }

@@ -49,9 +49,11 @@ dependencies {
 
     implementation(Google.HILT_ANDROID)
     kapt(Google.HILT_ANDROID_COMPILER)
-    implementation(Libraries.TIMBER)
 
     testImplementation(UnitTest.JUNIT)
     androidTestImplementation(AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
+
+    implementation(Libraries.TIMBER)
+    implementation(Libraries.LOTTIE)
 }
