@@ -9,7 +9,7 @@ class DailyBoxOfficeLayoutManager(
 ) : LinearLayoutManager(context, VERTICAL, false) {
 
     override fun checkLayoutParams(lp: RecyclerView.LayoutParams): Boolean {
-        lp.height = (height/3.5).toInt()
+        lp.height = (height/7).toInt()
         return super.checkLayoutParams(lp)
     }
 }
