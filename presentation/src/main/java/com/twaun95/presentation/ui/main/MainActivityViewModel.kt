@@ -7,6 +7,7 @@ import com.twaun95.domain.model.MovieEntity
 import com.twaun95.domain.model.Result
 import com.twaun95.domain.usecase.GetBoxOfficeUseCase
 import com.twaun95.presentation.base.BaseViewModel
+import com.twaun95.presentation.util.StringFormat
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -30,7 +31,7 @@ class MainActivityViewModel @Inject constructor(
     fun getBoxOfficeList() {
         viewModelScope.launch {
             startLoading()
-            val result = getBoxOfficeUseCase("20210102")
+            val result = getBoxOfficeUseCase(StringFormat.yesterdayDate())
             when(result) {
                 is Result.Success ->{
 //                    _dailyBoxOffice.value = result.data

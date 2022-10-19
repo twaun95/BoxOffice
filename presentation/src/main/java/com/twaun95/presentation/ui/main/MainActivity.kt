@@ -8,6 +8,7 @@ import com.twaun95.presentation.adapter.dailyBoxOffice.DailyBoxOfficeDecoration
 import com.twaun95.presentation.adapter.dailyBoxOffice.DailyBoxOfficeLayoutManager
 import com.twaun95.presentation.base.BaseActivity
 import com.twaun95.presentation.databinding.ActivityMainBinding
+import com.twaun95.presentation.util.StringFormat
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
