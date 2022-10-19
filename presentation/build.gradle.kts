@@ -46,6 +46,7 @@ dependencies {
     implementation(Google.MATERIAL)
     implementation(AndroidX.CONSTRAINT_LAYOUT)
     implementation(AndroidX.VIEW_MODEL)
+    implementation(AndroidX.SWIPE_LAYOUT)
 
     implementation(Google.HILT_ANDROID)
     kapt(Google.HILT_ANDROID_COMPILER)

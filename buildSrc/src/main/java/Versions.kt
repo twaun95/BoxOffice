@@ -12,6 +12,9 @@ object Versions {
     const val LIFECYCLE = "2.4.1"
     const val CORE_KTX = "1.7.0"
 
+    // AndroidX
+    const val SWIPE_LAYOUT = "1.1.0"
+
 
     // Google
     const val HILT = "2.40.5"
