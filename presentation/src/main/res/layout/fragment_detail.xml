@@ -28,5 +28,17 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_open_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{fragmentVM.movie.openDate}"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
