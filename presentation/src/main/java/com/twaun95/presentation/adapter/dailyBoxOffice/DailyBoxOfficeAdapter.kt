@@ -9,7 +9,7 @@ import com.twaun95.domain.model.MovieEntity
 import com.twaun95.presentation.databinding.ItemDailyBoxOfficeBinding
 
 class DailyBoxOfficeAdapter(
-    var onItemClickListener: (()->Unit)? = null
+    var onItemClickListener: ((index: Int)->Unit)? = null
 ) : ListAdapter<MovieEntity, DailyBoxOfficeAdapter.DailyBoxOfficeViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyBoxOfficeViewHolder {
@@ -17,7 +17,7 @@ class DailyBoxOfficeAdapter(
     }
 
     override fun onBindViewHolder(holder: DailyBoxOfficeViewHolder, position: Int) {
-        return holder.bind(getItem(position)){ onItemClickListener?.invoke() }
+        return holder.bind(getItem(position)){ onItemClickListener?.invoke(position) }
     }
 
     companion object {

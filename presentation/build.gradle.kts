@@ -41,6 +41,7 @@ dependencies {
     implementation(project(":domain"))
 
     implementation(AndroidX.ACTIVITY)
+    implementation(AndroidX.FRAGMENT)
     implementation(AndroidX.APP_COMPAT)
     implementation(AndroidX.CORE_KTX)
     implementation(Google.MATERIAL)

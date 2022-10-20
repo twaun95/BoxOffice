@@ -8,6 +8,7 @@ import com.twaun95.presentation.adapter.dailyBoxOffice.DailyBoxOfficeDecoration
 import com.twaun95.presentation.adapter.dailyBoxOffice.DailyBoxOfficeLayoutManager
 import com.twaun95.presentation.base.BaseActivity
 import com.twaun95.presentation.databinding.ActivityMainBinding
+import com.twaun95.presentation.ui.main.detail.DetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -26,7 +27,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             addItemDecoration(DailyBoxOfficeDecoration())
             adapter = dailyBoxOfficeAdapter.apply {
                 onItemClickListener = {
-                    Timber.d("onItemClickListener")
+                    Timber.d("item index : $it")
+                    supportFragmentManager.beginTransaction().add(R.id.frameLayout_root, DetailFragment.getInstance(viewModel.dailyBoxOffices.value[it])).addToBackStack(null).commit()
                 }
             }
         }

@@ -7,6 +7,7 @@ object Versions {
 
     // Android JetPack
     const val ACTIVITY = "1.4.0"
+    const val FRAGMENT = "1.4.1"
     const val APP_COMPAT = "1.4.1"
     const val CONSTRAINT_LAYOUT = "2.1.3"
     const val LIFECYCLE = "2.4.1"

@@ -9,13 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment<VB : ViewDataBinding, FVM : BaseViewModel>(@LayoutRes private val layoutId: Int) : Fragment(layoutId){
+abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes private val layoutId: Int) : Fragment(layoutId){
 
     private var _binding: VB? = null
     val binding: VB
         get() = _binding ?: throw IllegalStateException("binding fail")
 
-    abstract val fragmentVM : FVM
+    abstract val fragmentVM: VM
 
     override fun onCreateView(
         inflater: LayoutInflater,

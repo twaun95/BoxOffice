@@ -12,6 +12,7 @@ object AndroidX {
     const val LIFECYCLE_RUNTIME_KTX       = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}"
     const val ACTIVITY                    = "androidx.activity:activity-ktx:${Versions.ACTIVITY}"
     const val VIEW_MODEL                  = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
+    const val FRAGMENT                    = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT}"
     const val SWIPE_LAYOUT                = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_LAYOUT}"
 }
 
