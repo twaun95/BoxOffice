@@ -44,7 +44,10 @@ data class DailyBoxOffice(
     companion object {
         fun toMovieEntity(boxOffice: DailyBoxOffice) : MovieEntity{
             return MovieEntity(
-                name = boxOffice.movieNm
+                code = boxOffice.movieCd,
+                name = boxOffice.movieNm,
+                rank = boxOffice.rank,
+                openDate = boxOffice.openDt
             )
         }
     }
