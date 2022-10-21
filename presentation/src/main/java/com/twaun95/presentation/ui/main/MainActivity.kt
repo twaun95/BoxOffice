@@ -27,7 +27,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             addItemDecoration(DailyBoxOfficeDecoration())
             adapter = dailyBoxOfficeAdapter.apply {
                 onItemClickListener = {
-                    Timber.d("item index : $it")
                     supportFragmentManager.beginTransaction().add(R.id.frameLayout_root, DetailFragment.getInstance(viewModel.dailyBoxOffices.value[it])).addToBackStack(null).commit()
                 }
             }
@@ -36,7 +35,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun setEvent() {
         super.setEvent()
-
         binding.layoutSwipe.setOnRefreshListener {
             viewModel.getBoxOfficeList()
             binding.layoutSwipe.isRefreshing = false

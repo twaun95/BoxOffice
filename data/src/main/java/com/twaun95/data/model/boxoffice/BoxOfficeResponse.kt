@@ -1,4 +1,4 @@
-package com.twaun95.data.model
+package com.twaun95.data.model.boxoffice
 
 import com.google.gson.annotations.SerializedName
 

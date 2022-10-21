@@ -1,7 +1,7 @@
-package com.twaun95.data.model
+package com.twaun95.data.model.boxoffice
 
 import com.google.gson.annotations.SerializedName
-import com.twaun95.domain.model.MovieEntity
+import com.twaun95.domain.model.entity.BoxOfficeEntity
 
 data class DailyBoxOffice(
     @SerializedName("audiAcc")
@@ -42,8 +42,8 @@ data class DailyBoxOffice(
     val showCnt: String
 ) {
     companion object {
-        fun toMovieEntity(boxOffice: DailyBoxOffice) : MovieEntity{
-            return MovieEntity(
+        fun toBoxOfficeEntity(boxOffice: DailyBoxOffice) : BoxOfficeEntity {
+            return BoxOfficeEntity(
                 code = boxOffice.movieCd,
                 name = boxOffice.movieNm,
                 rank = boxOffice.rank,

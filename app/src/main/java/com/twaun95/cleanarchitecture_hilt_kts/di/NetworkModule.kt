@@ -55,13 +55,13 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMovieService(retrofit: Retrofit): MovieService {
-        return retrofit.create(MovieService::class.java)
+    fun getAPIKey(): APIKey {
+        return APIKey(key = BuildConfig.API_KEY)
     }
 
     @Provides
     @Singleton
-    fun getAPIKey(): APIKey {
-        return APIKey(key = BuildConfig.API_KEY)
+    fun provideMovieService(retrofit: Retrofit): MovieService {
+        return retrofit.create(MovieService::class.java)
     }
 }

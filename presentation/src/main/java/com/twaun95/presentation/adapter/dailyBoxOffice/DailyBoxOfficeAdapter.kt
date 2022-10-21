@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.twaun95.domain.model.MovieEntity
+import com.twaun95.domain.model.entity.BoxOfficeEntity
 import com.twaun95.presentation.databinding.ItemDailyBoxOfficeBinding
 
 class DailyBoxOfficeAdapter(
     var onItemClickListener: ((index: Int)->Unit)? = null
-) : ListAdapter<MovieEntity, DailyBoxOfficeAdapter.DailyBoxOfficeViewHolder>(diffUtil) {
+) : ListAdapter<BoxOfficeEntity, DailyBoxOfficeAdapter.DailyBoxOfficeViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyBoxOfficeViewHolder {
         return DailyBoxOfficeViewHolder(ItemDailyBoxOfficeBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -21,12 +21,12 @@ class DailyBoxOfficeAdapter(
     }
 
     companion object {
-        val diffUtil = object: DiffUtil.ItemCallback<MovieEntity>() {
-            override fun areContentsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+        val diffUtil = object: DiffUtil.ItemCallback<BoxOfficeEntity>() {
+            override fun areContentsTheSame(oldItem: BoxOfficeEntity, newItem: BoxOfficeEntity): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areItemsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+            override fun areItemsTheSame(oldItem: BoxOfficeEntity, newItem: BoxOfficeEntity): Boolean {
                 return oldItem.name == newItem.name
             }
         }
@@ -36,7 +36,7 @@ class DailyBoxOfficeAdapter(
         private val binding: ItemDailyBoxOfficeBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
-            data: MovieEntity,
+            data: BoxOfficeEntity,
             onClickListener: (()->Unit)? = null
         ) {
             binding.data = data

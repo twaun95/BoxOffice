@@ -1,6 +1,6 @@
-package com.twaun95.domain.model
+package com.twaun95.domain.model.entity
 
-data class MovieEntity(
+data class BoxOfficeEntity(
     val code: String,
     val name: String,
     val rank: String,

@@ -2,6 +2,7 @@ package com.twaun95.cleanarchitecture_hilt_kts.di
 
 import com.twaun95.domain.repository.MovieRepository
 import com.twaun95.domain.usecase.GetBoxOfficeUseCase
+import com.twaun95.domain.usecase.GetMovieInfoUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,5 +18,11 @@ object UseCaseModule {
     @Provides
     fun providesGetBoxOfficeUseCase(repository: MovieRepository): GetBoxOfficeUseCase {
         return GetBoxOfficeUseCase(repository)
+    }
+
+    @Singleton
+    @Provides
+    fun providesGetMovieInfoUseCase(repository: MovieRepository): GetMovieInfoUseCase {
+        return GetMovieInfoUseCase(repository)
     }
 }
