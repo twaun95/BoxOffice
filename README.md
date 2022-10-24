@@ -12,3 +12,9 @@
 - Coroutine
 - Recyclerview (ListAdapter)
 
+## CleanArchitecture
+멀티 모듈 구성을 통해 독립적으로
+- App
+- Data
+- Domain
+- Presentation
