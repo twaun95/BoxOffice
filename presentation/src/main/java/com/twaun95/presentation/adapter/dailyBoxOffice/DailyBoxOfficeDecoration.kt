@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class DailyBoxOfficeDecoration : RecyclerView.ItemDecoration() {
     companion object {
-        private const val VERTICAL_GAP = 10
+        private const val VERTICAL_GAP = 2
     }
 
     override fun getItemOffsets(

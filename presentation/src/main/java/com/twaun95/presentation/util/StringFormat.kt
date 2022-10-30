@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object StringFormat {
-    fun currentDate() : String {return SimpleDateFormat("yyyyMMdd").format(System.currentTimeMillis())}
     fun yesterdayDate() : String {
         val date = Date()
         val dateFormat = SimpleDateFormat("yyyyMMdd", Locale("ko", "KR"))
@@ -15,5 +14,4 @@ object StringFormat {
 
         return dateFormat.format(calendar.time)
     }
-
 }

@@ -12,6 +12,8 @@
         <variable
             name="fragmentVM"
             type="com.twaun95.presentation.ui.main.detail.DetailFragmentViewModel" />
+
+        <import type="com.twaun95.presentation.util.StringFormat"/>
     </data>
 
     <FrameLayout

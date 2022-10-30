@@ -13,13 +13,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/material_dynamic_neutral10">
+        android:background="@color/cardview_dark_background">
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_item"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@drawable/item_button"
+            android:textColor="@color/white"
+            android:textSize="20dp"
             android:text="@{@string/format_item_box_office(data.rank, data.name)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
