@@ -20,6 +20,43 @@
 - Coroutine
 - Recyclerview (ListAdapter)
 
+
+## Structure
+
+<pre>
+&boxvr;&boxh;&boxh;app
+&boxv;    &boxvr;&boxh;&boxh; di (Hilt)
+&boxv;    &boxv;      &boxvr;&boxh;&boxh; NetwortrModule
+&boxv;    &boxv;      &boxur;&boxh;&boxh; RepositoryModule
+&boxv;    &boxv;      &boxur;&boxh;&boxh; UsecaseModule
+&boxv;    &boxur;&boxh;&boxh; application
+&boxv;
+&boxvr;&boxh;&boxh;buildSrc(KTS 빌드 버전)
+&boxvr;&boxh;&boxh;data
+&boxv;    &boxvr;&boxh;&boxh; model(entity)
+&boxv;    &boxur;&boxh;&boxh; repository(implementation)
+&boxv;    &boxur;&boxh;&boxh; service(CREU interface)
+&boxvr;&boxh;&boxh;domain
+&boxv;    &boxvr;&boxh;&boxh; model
+&boxv;    &boxur;&boxh;&boxh; repository(interface)
+&boxv;    &boxur;&boxh;&boxh; usecase
+&boxur;&boxh;&boxh;presentation
+    &boxvr;&boxh;&boxh; adapter(recyclerview)
+    &boxur;&boxh;&boxh; base
+    &boxv;      &boxvr;&boxh;&boxh; baseActivity
+    &boxv;      &boxvr;&boxh;&boxh; baseFragment
+    &boxv;      &boxur;&boxh;&boxh; baseViewModel
+    &boxur;&boxh;&boxh; util
+    &boxur;&boxh;&boxh; ui
+          &boxvr;&boxh;&boxh; main
+          &boxv;      &boxvr;&boxh;&boxh; Activity
+          &boxv;      &boxur;&boxh;&boxh; ViewModel
+          &boxur;&boxh;&boxh; detail
+                &boxvr;&boxh;&boxh; Fragment
+                &boxur;&boxh;&boxh; ViewModel
+</pre>
+
+
 ## Clean-Architecture
 멀티 모듈 구성을 통해 독립적인 실행.
 계층을 분리하여 관심사를 완전히 분리하는 것에 있다.
