@@ -43,12 +43,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun setObserver() {
         super.setObserver()
-
         viewModel.dailyBoxOffices
             .onEach {
                 dailyBoxOfficeAdapter.submitList(it)
             }
             .launchIn(this.lifecycleScope)
-
     }
 }

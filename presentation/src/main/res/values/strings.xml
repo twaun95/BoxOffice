@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="format_item_box_office">%s등. %s</string>
+    <string name="movie_title">[제목] %s</string>
+    <string name="movie_date">[출시년도] %s</string>
+    <string name="movie_time">[상영시간] %s분</string>
+    <string name="movie_genre">[장르] %s</string>
 </resources>
