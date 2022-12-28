@@ -76,3 +76,7 @@
 ![image](https://blog.coderifleman.com/images/the-clean-architecture/the-clean-architecture.jpg)
 
 출처: https://blog.coderifleman.com/2017/12/18/the-clean-architecture/
+
+
+### TODO
+- di를 application모듈에서가 아닌 각 모듈(data or domain) 위치로 이동
