@@ -1,7 +1,7 @@
-package com.twaun95.cleanarchitecture_hilt_kts.di
+package com.twaun95.data.di
 
 import com.google.gson.GsonBuilder
-import com.twaun95.cleanarchitecture_hilt_kts.BuildConfig
+import com.twaun95.data.BuildConfig
 import com.twaun95.data.model.APIKey
 import com.twaun95.data.service.MovieService
 import dagger.Module
@@ -23,7 +23,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideClient(): OkHttpClient  {
+    fun provideClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .addNetworkInterceptor {
                 it.proceed(
@@ -46,7 +46,8 @@ object NetworkModule {
     fun provideRetrofit(client: OkHttpClient) : Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(
+            .addConverterFactory(
+                GsonConverterFactory.create(
                 GsonBuilder().serializeNulls().create()
             ))
             .client(client)

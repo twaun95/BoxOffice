@@ -1,4 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
 plugins {
     id("com.android.application")
@@ -18,7 +17,6 @@ android {
         versionName = Configs.VERSION_NAME
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "API_KEY", gradleLocalProperties(rootDir).getProperty("api_key"))
     }
 
     buildTypes {
@@ -55,11 +53,6 @@ dependencies {
 
     implementation(Google.HILT_ANDROID)
     kapt(Google.HILT_ANDROID_COMPILER)
-
-    implementation(Libraries.RETROFIT)
-    implementation(Libraries.RETROFIT_CONVERTER_GSON)
-    implementation(Libraries.OKHTTP)
-    implementation(Libraries.OKHTTP_LOGGING_INTERCEPTOR)
 
     implementation(Libraries.TIMBER)
 
