@@ -25,18 +25,16 @@
 
 <pre>
 &boxvr;&boxh;&boxh;app
-&boxv;    &boxvr;&boxh;&boxh; di (Hilt)
-&boxv;    &boxv;      &boxvr;&boxh;&boxh; NetwortrModule
-&boxv;    &boxv;      &boxur;&boxh;&boxh; RepositoryModule
-&boxv;    &boxv;      &boxur;&boxh;&boxh; UsecaseModule
-&boxv;    &boxur;&boxh;&boxh; application
+&boxv;    &boxur;&boxh;&boxh; application (Hilt, Logger)
 &boxv;
 &boxvr;&boxh;&boxh;buildSrc(KTS 빌드 버전)
 &boxvr;&boxh;&boxh;data
+&boxv;    &boxvr;&boxh;&boxh; di (NetwortrModule, RepositoryModule)
 &boxv;    &boxvr;&boxh;&boxh; model(entity)
 &boxv;    &boxur;&boxh;&boxh; repository(implementation)
 &boxv;    &boxur;&boxh;&boxh; service(CREU interface)
 &boxvr;&boxh;&boxh;domain
+&boxv;    &boxvr;&boxh;&boxh; di (UsecaseModule)
 &boxv;    &boxvr;&boxh;&boxh; model
 &boxv;    &boxur;&boxh;&boxh; repository(interface)
 &boxv;    &boxur;&boxh;&boxh; usecase
@@ -77,6 +75,3 @@
 
 출처: https://blog.coderifleman.com/2017/12/18/the-clean-architecture/
 
-
-### TODO
-- di를 application모듈에서가 아닌 각 모듈(data or domain) 위치로 이동
