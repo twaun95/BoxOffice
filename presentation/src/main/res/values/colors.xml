@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#FFFFFFFF</color>
 
+    <color name="white">#FFFFFFFF</color>
+    <color name="item_clicked">#595656</color>
+    <color name="dark_gray">#454545</color>
 </resources>
