@@ -73,5 +73,8 @@
 
 ![image](https://blog.coderifleman.com/images/the-clean-architecture/the-clean-architecture.jpg)
 
+위의 아키텍처를 가능하게 하는 중요 규칙은 바로 의존 규칙이다.
+이 의존 규칙에 의해서 소스 코드는 안쪽을 향해서만 의존할 수 있고, 안쪽의 원은 바깥쪽 원에 대해 전혀 알지 못하고 참조할 수 없다. (presentation <- domain <- data)
+
 출처: https://blog.coderifleman.com/2017/12/18/the-clean-architecture/
 
