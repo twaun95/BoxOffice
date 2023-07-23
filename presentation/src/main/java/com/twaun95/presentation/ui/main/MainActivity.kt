@@ -43,6 +43,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun setObserver() {
         super.setObserver()
+        viewModel.error
+            .onEach { message ->
+                Timber.d(message)
+            }
+            .launchIn(lifecycleScope)
+
+        viewModel.action
+            .onEach { action ->
+                when(action) {
+                    MainActivityViewModel.Action.Save -> {
+
+                    }
+                }
+            }
+            .launchIn(lifecycleScope)
+
         viewModel.dailyBoxOffices
             .onEach {
                 dailyBoxOfficeAdapter.submitList(it)

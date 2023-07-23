@@ -9,7 +9,9 @@ import com.twaun95.domain.model.entity.movie.MovieEntity
 import com.twaun95.domain.usecase.GetMovieInfoUseCase
 import com.twaun95.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -20,10 +22,10 @@ class DetailFragmentViewModel @Inject constructor(
     private val getMovieInfoUseCase: GetMovieInfoUseCase
 ) : BaseViewModel() {
 
-    private val _boxOfficeInfo = MutableLiveData<BoxOfficeEntity>()
-    val boxOfficeInfo: LiveData<BoxOfficeEntity>
-        get() = _boxOfficeInfo
+    private val _action = MutableSharedFlow<Action>()
+    val action: SharedFlow<Action> get() = _action
 
+    private val _boxOfficeInfo = MutableLiveData<BoxOfficeEntity>()
     private val _movieInfo = MutableStateFlow(MovieEntity.empty())
     val movieInfo: StateFlow<MovieEntity>
         get() = _movieInfo
@@ -41,9 +43,17 @@ class DetailFragmentViewModel @Inject constructor(
                     _movieInfo.value = result.data
                     Timber.d("${_movieInfo.value}")
                 }
-                is Result.Fail -> { Timber.d("${result.exception}") }
+                is Result.Fail -> {
+                    onError(result.exception.message)
+                }
             }
             stopLoading()
         }
+    }
+
+
+    sealed class Action {
+        object Back: Action()
+        object Save: Action()
     }
 }
