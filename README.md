@@ -1,4 +1,4 @@
-# CleanArchitecture-Hilt-Kts
+# Box-Office
 
 당일 영화 순위(1~10위)를 조회하고 영화 선택시 상세정보(제목, 출시날짜, 상영시간, 영화장르 등)를 알 수 있다.
 
