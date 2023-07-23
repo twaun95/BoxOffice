@@ -1,8 +1,6 @@
 package com.twaun95.data.model.info
 
-import com.twaun95.data.model.boxoffice.DailyBoxOffice
-import com.twaun95.domain.model.entity.BoxOfficeEntity
-import com.twaun95.domain.model.entity.MovieEntity
+import com.twaun95.domain.model.entity.movie.MovieEntity
 
 data class MovieInfo(
     val actors: List<Actor>,

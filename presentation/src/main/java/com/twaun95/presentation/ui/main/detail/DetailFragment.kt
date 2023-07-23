@@ -2,13 +2,12 @@ package com.twaun95.presentation.ui.main.detail
 
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import com.twaun95.domain.model.entity.BoxOfficeEntity
+import com.twaun95.domain.model.entity.movie.BoxOfficeEntity
 import com.twaun95.presentation.R
 import com.twaun95.presentation.base.BaseFragment
 import com.twaun95.presentation.databinding.FragmentDetailBinding
 import com.twaun95.presentation.ui.main.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class DetailFragment(private val movie: BoxOfficeEntity) : BaseFragment<FragmentDetailBinding, DetailFragmentViewModel>(R.layout.fragment_detail){

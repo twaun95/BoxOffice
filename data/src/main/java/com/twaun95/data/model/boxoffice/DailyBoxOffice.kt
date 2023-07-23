@@ -1,7 +1,7 @@
 package com.twaun95.data.model.boxoffice
 
 import com.google.gson.annotations.SerializedName
-import com.twaun95.domain.model.entity.BoxOfficeEntity
+import com.twaun95.domain.model.entity.movie.BoxOfficeEntity
 
 data class DailyBoxOffice(
     @SerializedName("audiAcc")

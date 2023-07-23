@@ -1,4 +1,6 @@
-package com.twaun95.domain.model.entity
+package com.twaun95.domain.model.entity.movie
+
+import com.twaun95.domain.model.entity.Entity
 
 data class MovieEntity(
     val name: String,
@@ -6,9 +8,9 @@ data class MovieEntity(
     val openDate: String,
     val type: String,
     val genre: String
-) {
+) : Entity {
     companion object {
-        fun empty() : MovieEntity{
+        fun empty() : MovieEntity {
             return MovieEntity(
                 name = "",
                 showTime = "",

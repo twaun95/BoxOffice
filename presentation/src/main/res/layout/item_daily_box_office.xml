@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.twaun95.domain.model.entity.BoxOfficeEntity" />
+            type="com.twaun95.domain.model.entity.movie.BoxOfficeEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

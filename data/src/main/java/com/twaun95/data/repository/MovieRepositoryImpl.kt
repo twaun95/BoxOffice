@@ -4,10 +4,10 @@ import com.twaun95.data.model.APIKey
 import com.twaun95.data.model.boxoffice.DailyBoxOffice
 import com.twaun95.data.model.info.MovieInfo
 import com.twaun95.data.service.MovieService
-import com.twaun95.domain.model.entity.BoxOfficeEntity
-import com.twaun95.domain.model.entity.MovieEntity
+import com.twaun95.domain.model.entity.movie.BoxOfficeEntity
+import com.twaun95.domain.model.entity.movie.MovieEntity
 import com.twaun95.domain.model.Result
-import com.twaun95.domain.repository.MovieRepository
+import com.twaun95.domain.repository.movie.MovieRepository
 import javax.inject.Inject
 import kotlin.Exception
 

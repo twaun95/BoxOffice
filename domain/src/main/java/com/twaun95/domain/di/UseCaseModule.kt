@@ -1,6 +1,6 @@
 package com.twaun95.domain.di
 
-import com.twaun95.domain.repository.MovieRepository
+import com.twaun95.domain.repository.movie.MovieRepository
 import com.twaun95.domain.usecase.GetBoxOfficeUseCase
 import com.twaun95.domain.usecase.GetMovieInfoUseCase
 import dagger.Module

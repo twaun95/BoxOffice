@@ -1,8 +1,8 @@
 package com.twaun95.domain.usecase
 
 import com.twaun95.domain.model.Result
-import com.twaun95.domain.model.entity.MovieEntity
-import com.twaun95.domain.repository.MovieRepository
+import com.twaun95.domain.model.entity.movie.MovieEntity
+import com.twaun95.domain.repository.movie.MovieRepository
 import javax.inject.Inject
 
 class GetMovieInfoUseCase @Inject constructor(

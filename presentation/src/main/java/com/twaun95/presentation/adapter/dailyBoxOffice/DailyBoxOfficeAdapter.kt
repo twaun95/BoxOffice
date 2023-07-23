@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.twaun95.domain.model.entity.BoxOfficeEntity
+import com.twaun95.domain.model.entity.movie.BoxOfficeEntity
 import com.twaun95.presentation.databinding.ItemDailyBoxOfficeBinding
 
 class DailyBoxOfficeAdapter(

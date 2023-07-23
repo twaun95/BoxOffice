@@ -2,7 +2,6 @@ package com.twaun95.data.service
 
 import com.twaun95.data.model.boxoffice.BoxOfficeResponse
 import com.twaun95.data.model.info.MovieInfoResult
-import com.twaun95.domain.model.entity.base.APIResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
