@@ -1,9 +1,8 @@
 package com.twaun95.data.repository
 
-import com.twaun95.data.model.APIKey
 import com.twaun95.data.model.boxoffice.DailyBoxOffice
 import com.twaun95.data.model.info.MovieInfo
-import com.twaun95.data.service.MovieService
+import com.twaun95.data.remote.movie.MovieRemoteDataSource
 import com.twaun95.domain.model.entity.movie.BoxOfficeEntity
 import com.twaun95.domain.model.entity.movie.MovieEntity
 import com.twaun95.domain.model.Result
@@ -12,11 +11,10 @@ import javax.inject.Inject
 import kotlin.Exception
 
 class MovieRepositoryImpl @Inject constructor(
-    private val movieService: MovieService,
-    private val apiKey: APIKey
+    private val movieRemoteDataSource: MovieRemoteDataSource
 ) : MovieRepository {
     override suspend fun getBoxOffice(date: String) : Result<List<BoxOfficeEntity>> {
-        val response = movieService.getBoxOffice(apiKey.key, date)
+        val response = movieRemoteDataSource.getBoxOffice(date)
 
         return try {
             if (response.isSuccessful) {
@@ -32,7 +30,7 @@ class MovieRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getMovieInfo(code: String): Result<MovieEntity> {
-        val response = movieService.getMovieInfo(apiKey.key, code)
+        val response = movieRemoteDataSource.getMovieInfo(code)
 
         return try {
             if (response.isSuccessful) {
