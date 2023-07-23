@@ -7,17 +7,18 @@
 - Hilt 의존성 주입을 적용해보기.
 - KTS로 빌드 구성을 적용해보고 gradle 과의 차이를 알아보기.
 - Retrofit 을 활용해 오픈 API를 사용해 영화 정보를 얻어오기.
-- LiveData 대신 Flow 사용해보기
+- LiveData 대신 Flow 사용해보기.
+- ViewModel 에서 UI 이벤트 Sealed Class 를 만들어 사용해보기.
+- Base Class(Activity, Fragment, ViewModel, ViewHolder) 들을 만들어 상속해 사용하기.
 
 ## Skills
-- CleanArchitecture
+- CleanArchitecture + Multi Module
 - MVVM
-- Hilt
+- Hilt DI
 - KTS
 - DataBinding
 - Retrofit(영화진흥위원회 open API), Postman, Json Converter
-- Flow
-- Coroutine
+- Flow + Coroutine
 - Recyclerview (ListAdapter)
 
 
@@ -29,13 +30,15 @@
 &boxv;
 &boxvr;&boxh;&boxh;buildSrc(KTS 빌드 버전)
 &boxvr;&boxh;&boxh;data
-&boxv;    &boxvr;&boxh;&boxh; di (NetwortrModule, RepositoryModule)
-&boxv;    &boxvr;&boxh;&boxh; model(entity)
+&boxv;    &boxvr;&boxh;&boxh; di (NetwortrModule, RepositoryModule, RemoteDataStoreModule, LocalDataStoreModule)
+&boxv;    &boxvr;&boxh;&boxh; model
+&boxv;    &boxvr;&boxh;&boxh; remote
+&boxv;    &boxvr;&boxh;&boxh; local
 &boxv;    &boxur;&boxh;&boxh; repository(implementation)
-&boxv;    &boxur;&boxh;&boxh; service(CREU interface)
+&boxv;    &boxur;&boxh;&boxh; service(API interface)
 &boxvr;&boxh;&boxh;domain
 &boxv;    &boxvr;&boxh;&boxh; di (UsecaseModule)
-&boxv;    &boxvr;&boxh;&boxh; model
+&boxv;    &boxvr;&boxh;&boxh; model(entity)
 &boxv;    &boxur;&boxh;&boxh; repository(interface)
 &boxv;    &boxur;&boxh;&boxh; usecase
 &boxur;&boxh;&boxh;presentation
@@ -44,6 +47,7 @@
     &boxv;      &boxvr;&boxh;&boxh; baseActivity
     &boxv;      &boxvr;&boxh;&boxh; baseFragment
     &boxv;      &boxur;&boxh;&boxh; baseViewModel
+    &boxv;      &boxur;&boxh;&boxh; baseViewHolder
     &boxur;&boxh;&boxh; util
     &boxur;&boxh;&boxh; ui
           &boxvr;&boxh;&boxh; main
