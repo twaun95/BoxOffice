@@ -1,6 +1,5 @@
 package com.twaun95.presentation.ui.main.detail
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.twaun95.domain.model.Result

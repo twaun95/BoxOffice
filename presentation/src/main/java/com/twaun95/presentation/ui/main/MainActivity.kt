@@ -17,7 +17,13 @@ import timber.log.Timber
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val viewModel by viewModels<MainActivityViewModel>()
-    private val dailyBoxOfficeAdapter by lazy { DailyBoxOfficeAdapter() }
+    private val dailyBoxOfficeAdapter by lazy {
+        DailyBoxOfficeAdapter(
+            onItemClickListener = { item ->
+                supportFragmentManager.beginTransaction().add(R.id.frameLayout_root, DetailFragment.getInstance(item)).addToBackStack(null).commit()
+            }
+        )
+    }
 
     override fun initView() {
         super.initView()
@@ -25,11 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.recyclerDailyBoxOffice.apply {
             layoutManager = DailyBoxOfficeLayoutManager(this@MainActivity)
             addItemDecoration(DailyBoxOfficeDecoration())
-            adapter = dailyBoxOfficeAdapter.apply {
-                onItemClickListener = {
-                    supportFragmentManager.beginTransaction().add(R.id.frameLayout_root, DetailFragment.getInstance(viewModel.dailyBoxOffices.value[it])).addToBackStack(null).commit()
-                }
-            }
+            adapter = dailyBoxOfficeAdapter
         }
     }
 
