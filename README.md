@@ -25,18 +25,16 @@
 
 <pre>
 &boxvr;&boxh;&boxh;app
-&boxv;    &boxvr;&boxh;&boxh; di (Hilt)
-&boxv;    &boxv;      &boxvr;&boxh;&boxh; NetwortrModule
-&boxv;    &boxv;      &boxur;&boxh;&boxh; RepositoryModule
-&boxv;    &boxv;      &boxur;&boxh;&boxh; UsecaseModule
-&boxv;    &boxur;&boxh;&boxh; application
+&boxv;    &boxur;&boxh;&boxh; application (Hilt, Logger)
 &boxv;
 &boxvr;&boxh;&boxh;buildSrc(KTS 빌드 버전)
 &boxvr;&boxh;&boxh;data
+&boxv;    &boxvr;&boxh;&boxh; di (NetwortrModule, RepositoryModule)
 &boxv;    &boxvr;&boxh;&boxh; model(entity)
 &boxv;    &boxur;&boxh;&boxh; repository(implementation)
 &boxv;    &boxur;&boxh;&boxh; service(CREU interface)
 &boxvr;&boxh;&boxh;domain
+&boxv;    &boxvr;&boxh;&boxh; di (UsecaseModule)
 &boxv;    &boxvr;&boxh;&boxh; model
 &boxv;    &boxur;&boxh;&boxh; repository(interface)
 &boxv;    &boxur;&boxh;&boxh; usecase
@@ -75,8 +73,8 @@
 
 ![image](https://blog.coderifleman.com/images/the-clean-architecture/the-clean-architecture.jpg)
 
+위의 아키텍처를 가능하게 하는 중요 규칙은 바로 의존 규칙이다.
+이 의존 규칙에 의해서 소스 코드는 안쪽을 향해서만 의존할 수 있고, 안쪽의 원은 바깥쪽 원에 대해 전혀 알지 못하고 참조할 수 없다. (presentation <- domain <- data)
+
 출처: https://blog.coderifleman.com/2017/12/18/the-clean-architecture/
 
-
-### TODO
-- di를 application모듈에서가 아닌 각 모듈(data or domain) 위치로 이동
