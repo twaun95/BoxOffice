@@ -1,22 +1,21 @@
-package com.twaun95.presentation.ui.main.detail
+package com.twaun95.presentation.ui.movie_detail
 
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.twaun95.domain.model.entity.movie.BoxOfficeEntity
 import com.twaun95.presentation.R
 import com.twaun95.presentation.base.BaseFragment
-import com.twaun95.presentation.databinding.FragmentDetailBinding
-import com.twaun95.presentation.ui.main.MainActivityViewModel
+import com.twaun95.presentation.databinding.FragmentMovieDetailBinding
+import com.twaun95.presentation.ui.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import timber.log.Timber
 
 @AndroidEntryPoint
-class DetailFragment(private val movie: BoxOfficeEntity) : BaseFragment<FragmentDetailBinding, DetailFragmentViewModel>(R.layout.fragment_detail){
+class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MovieDetailFragmentViewModel>(R.layout.fragment_movie_detail){
 
-    override val fragmentVM by viewModels<DetailFragmentViewModel>()
+    override val fragmentVM by viewModels<MovieDetailFragmentViewModel>()
     private val activityVM by activityViewModels<MainActivityViewModel>()
 
     override fun initView() {
@@ -25,8 +24,8 @@ class DetailFragment(private val movie: BoxOfficeEntity) : BaseFragment<Fragment
         binding.activityVM = activityVM
         binding.fragmentVM = fragmentVM
 
-        fragmentVM.initData(movie)
-        fragmentVM.getMovieInfo(movie.code)
+        activityVM.selectItem.value?.let { fragmentVM.initData(it) }
+        fragmentVM.getMovieItem()
     }
 
     override fun setObserver() {
@@ -40,10 +39,10 @@ class DetailFragment(private val movie: BoxOfficeEntity) : BaseFragment<Fragment
         fragmentVM.action
             .onEach { action ->
                 when(action) {
-                    DetailFragmentViewModel.Action.Back -> {
+                    MovieDetailFragmentViewModel.Action.Back -> {
                         // 뒤로
                     }
-                    DetailFragmentViewModel.Action.Save -> {
+                    MovieDetailFragmentViewModel.Action.Save -> {
                         // 저장
                     }
                 }
@@ -52,6 +51,6 @@ class DetailFragment(private val movie: BoxOfficeEntity) : BaseFragment<Fragment
     }
 
     companion object {
-        fun getInstance(movie: BoxOfficeEntity) : DetailFragment = DetailFragment(movie)
+        fun getInstance() : MovieDetailFragment = MovieDetailFragment()
     }
 }

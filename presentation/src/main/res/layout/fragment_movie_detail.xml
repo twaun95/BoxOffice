@@ -7,11 +7,11 @@
 
         <variable
             name="activityVM"
-            type="com.twaun95.presentation.ui.main.MainActivityViewModel" />
+            type="com.twaun95.presentation.ui.MainActivityViewModel" />
 
         <variable
             name="fragmentVM"
-            type="com.twaun95.presentation.ui.main.detail.DetailFragmentViewModel" />
+            type="com.twaun95.presentation.ui.movie_detail.MovieDetailFragmentViewModel" />
 
         <import type="com.twaun95.presentation.util.StringFormat"/>
     </data>

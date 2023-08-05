@@ -1,4 +1,4 @@
-package com.twaun95.presentation.ui.main.detail
+package com.twaun95.presentation.ui.movie_detail
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -17,7 +17,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailFragmentViewModel @Inject constructor(
+class MovieDetailFragmentViewModel @Inject constructor(
     private val getMovieInfoUseCase: GetMovieInfoUseCase
 ) : BaseViewModel() {
 
@@ -26,20 +26,19 @@ class DetailFragmentViewModel @Inject constructor(
 
     private val _boxOfficeInfo = MutableLiveData<BoxOfficeEntity>()
     private val _movieInfo = MutableStateFlow(MovieEntity.empty())
-    val movieInfo: StateFlow<MovieEntity>
-        get() = _movieInfo
+    val movieInfo: StateFlow<MovieEntity> get() = _movieInfo
 
     fun initData(boxOfficeInfo: BoxOfficeEntity) {
         _boxOfficeInfo.value = boxOfficeInfo
     }
 
-    fun getMovieInfo(movieCode: String) {
+    fun getMovieItem() {
         viewModelScope.launch {
             startLoading()
-            val result = getMovieInfoUseCase(movieCode)
+            val result = getMovieInfoUseCase(_boxOfficeInfo.value?.code ?: "")
             when(result) {
                 is Result.Success ->{
-                    _movieInfo.value = result.data
+                    _movieInfo.emit(result.data)
                     Timber.d("${_movieInfo.value}")
                 }
                 is Result.Fail -> {
