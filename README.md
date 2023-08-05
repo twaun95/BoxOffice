@@ -10,6 +10,8 @@
 - LiveData 대신 Flow 사용해보기.
 - ViewModel 에서 UI 이벤트 Sealed Class 를 만들어 사용해보기.
 - Base Class(Activity, Fragment, ViewModel, ViewHolder) 들을 만들어 상속해 사용하기.
+- 테스트 코드 작성해보기.
+- SharedPreferences 대신 DataStore 를 사용하여 로컬에 저장하기.
 
 ## Skills
 - CleanArchitecture + Multi Module
@@ -17,7 +19,7 @@
 - Hilt DI
 - KTS
 - DataBinding
-- Retrofit(영화진흥위원회 open API), Postman, Json Converter
+- Retrofit(영화진흥위원회 open API)
 - Flow + Coroutine
 - Recyclerview (ListAdapter)
 
@@ -81,4 +83,3 @@
 이 의존 규칙에 의해서 소스 코드는 안쪽을 향해서만 의존할 수 있고, 안쪽의 원은 바깥쪽 원에 대해 전혀 알지 못하고 참조할 수 없다. (presentation <- domain <- data)
 
 출처: https://blog.coderifleman.com/2017/12/18/the-clean-architecture/
-
