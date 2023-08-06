@@ -16,9 +16,12 @@
 ## Skills
 - CleanArchitecture + Multi Module
 - MVVM
-- Hilt DI
+- DI - Hilt
 - KTS
-- DataBinding
+- JetPack
+    - DataBinding
+    - LiveData
+    - Navigation
 - Retrofit(영화진흥위원회 open API)
 - Flow + Coroutine
 - Recyclerview (ListAdapter)
@@ -52,12 +55,6 @@
     &boxv;      &boxur;&boxh;&boxh; baseViewHolder
     &boxur;&boxh;&boxh; util
     &boxur;&boxh;&boxh; ui
-          &boxvr;&boxh;&boxh; main
-          &boxv;      &boxvr;&boxh;&boxh; Activity
-          &boxv;      &boxur;&boxh;&boxh; ViewModel
-          &boxur;&boxh;&boxh; detail
-                &boxvr;&boxh;&boxh; Fragment
-                &boxur;&boxh;&boxh; ViewModel
 </pre>
 
 
