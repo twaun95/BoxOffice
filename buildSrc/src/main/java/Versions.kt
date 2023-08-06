@@ -12,6 +12,7 @@ object Versions {
     const val CONSTRAINT_LAYOUT = "2.1.3"
     const val LIFECYCLE = "2.4.1"
     const val CORE_KTX = "1.7.0"
+    const val NAVIGATION = "2.5.3"
 
     // AndroidX
     const val SWIPE_LAYOUT = "1.1.0"

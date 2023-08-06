@@ -48,6 +48,8 @@ dependencies {
     implementation(AndroidX.CONSTRAINT_LAYOUT)
     implementation(AndroidX.VIEW_MODEL)
     implementation(AndroidX.SWIPE_LAYOUT)
+    implementation(AndroidX.NAVIGATION)
+    implementation(AndroidX.NAVIGATION_UI)
 
     implementation(Google.HILT_ANDROID)
     kapt(Google.HILT_ANDROID_COMPILER)

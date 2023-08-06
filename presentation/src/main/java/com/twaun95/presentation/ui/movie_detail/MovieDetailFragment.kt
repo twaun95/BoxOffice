@@ -13,7 +13,8 @@ import kotlinx.coroutines.flow.onEach
 import timber.log.Timber
 
 @AndroidEntryPoint
-class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MovieDetailFragmentViewModel>(R.layout.fragment_movie_detail){
+class MovieDetailFragment :
+    BaseFragment<FragmentMovieDetailBinding, MovieDetailFragmentViewModel>(R.layout.fragment_movie_detail) {
 
     override val fragmentVM by viewModels<MovieDetailFragmentViewModel>()
     private val activityVM by activityViewModels<MainActivityViewModel>()
@@ -38,10 +39,11 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MovieDetail
 
         fragmentVM.action
             .onEach { action ->
-                when(action) {
+                when (action) {
                     MovieDetailFragmentViewModel.Action.Back -> {
                         // 뒤로
                     }
+
                     MovieDetailFragmentViewModel.Action.Save -> {
                         // 저장
                     }
@@ -51,6 +53,6 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MovieDetail
     }
 
     companion object {
-        fun getInstance() : MovieDetailFragment = MovieDetailFragment()
+        fun getInstance(): MovieDetailFragment = MovieDetailFragment()
     }
 }

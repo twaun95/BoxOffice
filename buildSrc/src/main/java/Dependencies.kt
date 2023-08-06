@@ -14,6 +14,8 @@ object AndroidX {
     const val VIEW_MODEL                  = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
     const val FRAGMENT                    = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT}"
     const val SWIPE_LAYOUT                = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_LAYOUT}"
+    const val NAVIGATION                  = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
+    const val NAVIGATION_UI               = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
 }
 
 object Google {

@@ -2,6 +2,8 @@ package com.twaun95.presentation.ui
 
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.twaun95.presentation.R
 import com.twaun95.presentation.adapter.dailyBoxOffice.DailyBoxOfficeAdapter
 import com.twaun95.presentation.adapter.dailyBoxOffice.DailyBoxOfficeDecoration
@@ -28,19 +30,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun initView() {
         super.initView()
         binding.viewModel = viewModel
-        binding.recyclerDailyBoxOffice.apply {
-            layoutManager = DailyBoxOfficeLayoutManager(this@MainActivity)
-            addItemDecoration(DailyBoxOfficeDecoration())
-            adapter = dailyBoxOfficeAdapter
-        }
+        initNavigation()
+//        binding.recyclerDailyBoxOffice.apply {
+//            layoutManager = DailyBoxOfficeLayoutManager(this@MainActivity)
+//            addItemDecoration(DailyBoxOfficeDecoration())
+//            adapter = dailyBoxOfficeAdapter
+//        }
     }
 
     override fun setEvent() {
         super.setEvent()
-        binding.layoutSwipe.setOnRefreshListener {
-            viewModel.getBoxOfficeList()
-            binding.layoutSwipe.isRefreshing = false
-        }
+//        binding.layoutSwipe.setOnRefreshListener {
+//            viewModel.getBoxOfficeList()
+//            binding.layoutSwipe.isRefreshing = false
+//        }
     }
 
     override fun setObserver() {
@@ -69,5 +72,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 dailyBoxOfficeAdapter.submitList(it)
             }
             .launchIn(this.lifecycleScope)
+    }
+
+    private fun initNavigation() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.viewNavBottom.setupWithNavController(navController)
     }
 }
