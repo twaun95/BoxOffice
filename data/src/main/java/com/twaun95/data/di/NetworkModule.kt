@@ -37,7 +37,8 @@ object NetworkModule {
                 }
             }
             .connectTimeout(TIME_OUT_COUNT, TimeUnit.SECONDS)
-            .readTimeout(TIME_OUT_COUNT, TimeUnit.SECONDS)
+            .readTimeout(300, TimeUnit.SECONDS)
+            .writeTimeout(300, TimeUnit.SECONDS)
             .build()
     }
 

@@ -9,7 +9,12 @@
         android:id="@+id/boxOfficeFragment"
         android:name="com.twaun95.presentation.ui.boxoffice.BoxOfficeFragment"
         android:label="BoxOfficeFragment"
-        tools:layout="@layout/fragment_boxoffice" />
+        tools:layout="@layout/fragment_boxoffice" >
+        <action
+            android:id="@+id/action_boxOfficeFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment">
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/searchMovieFragment"
         android:name="com.twaun95.presentation.ui.search_movie.SearchMovieFragment"
@@ -25,4 +30,8 @@
         android:name="com.twaun95.presentation.ui.my_movies.MyMoviesFragment"
         android:label="MyMoviesFragment"
         tools:layout="@layout/fragment_my_movies"/>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.twaun95.presentation.ui.movie_detail.MovieDetailFragment"
+        android:label="MovieDetailFragment" />
 </navigation>

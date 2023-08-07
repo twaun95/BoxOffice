@@ -28,14 +28,16 @@ class MovieDetailFragmentViewModel @Inject constructor(
     private val _movieInfo = MutableStateFlow(MovieEntity.empty())
     val movieInfo: StateFlow<MovieEntity> get() = _movieInfo
 
-    fun initData(boxOfficeInfo: BoxOfficeEntity) {
-        _boxOfficeInfo.value = boxOfficeInfo
+    var movieCode = ""
+
+    fun initData(movieCode: String?) {
+        this.movieCode = movieCode ?: ""
     }
 
     fun getMovieItem() {
         viewModelScope.launch {
             startLoading()
-            val result = getMovieInfoUseCase(_boxOfficeInfo.value?.code ?: "")
+            val result = getMovieInfoUseCase(movieCode)
             when(result) {
                 is Result.Success ->{
                     _movieInfo.emit(result.data)

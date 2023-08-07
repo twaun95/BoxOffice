@@ -25,8 +25,7 @@ class MovieDetailFragment :
         binding.activityVM = activityVM
         binding.fragmentVM = fragmentVM
 
-        activityVM.selectItem.value?.let { fragmentVM.initData(it) }
-        fragmentVM.getMovieItem()
+        fragmentVM.initData(arguments?.getString("movieCode"))
     }
 
     override fun setObserver() {
@@ -52,7 +51,9 @@ class MovieDetailFragment :
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-    companion object {
-        fun getInstance(): MovieDetailFragment = MovieDetailFragment()
+    override fun onStart() {
+        super.onStart()
+
+        fragmentVM.getMovieItem()
     }
 }
