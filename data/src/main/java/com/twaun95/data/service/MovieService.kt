@@ -25,7 +25,7 @@ interface MovieService {
         @Query("movieCd") code: String
     ): Response<MovieInfoResult>
 
-    @GET("kobisopenapi/webservice/rest/movie/searchMovieList.xml")
+    @GET("kobisopenapi/webservice/rest/movie/searchMovieList.json")
     suspend fun getMovies(
         @Query("key") key: String,
         @Query("movieNm") name: String

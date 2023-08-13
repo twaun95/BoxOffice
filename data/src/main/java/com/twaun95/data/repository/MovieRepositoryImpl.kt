@@ -8,6 +8,7 @@ import com.twaun95.domain.model.entity.movie.BoxOfficeEntity
 import com.twaun95.domain.model.entity.movie.MovieEntity
 import com.twaun95.domain.model.Result
 import com.twaun95.domain.repository.movie.MovieRepository
+import timber.log.Timber
 import javax.inject.Inject
 import kotlin.Exception
 

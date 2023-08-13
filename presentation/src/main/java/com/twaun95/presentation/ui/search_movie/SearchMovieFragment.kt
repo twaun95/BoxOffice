@@ -17,6 +17,8 @@ class SearchMovieFragment :
 
     override fun initView() {
         super.initView()
+
+        fragmentVM.searchMovie()
     }
 
     override fun setObserver() {
