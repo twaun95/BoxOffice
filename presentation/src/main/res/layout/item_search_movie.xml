@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.twaun95.domain.model.entity.movie.BoxOfficeEntity" />
+            type="com.twaun95.domain.model.entity.movie.MovieEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/item_button"
-            android:text="@{@string/format_item_box_office(data.rank, data.name)}"
+            android:text="@{@string/format_movie_title(data.name)}"
             android:textColor="@color/white"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"

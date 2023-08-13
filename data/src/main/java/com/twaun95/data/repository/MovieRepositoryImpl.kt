@@ -48,8 +48,9 @@ class MovieRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getMovies(movieName: String): Result<List<MovieEntity>> {
-        val response = movieRemoteDataSource.searchMovies(movieName = movieName)
+        if (movieName.isEmpty()) return Result.Success(emptyList())
 
+        val response = movieRemoteDataSource.searchMovies(movieName = movieName)
         return try {
             if (response.isSuccessful) {
                 return Result.Success(response.body()!!.movieListResult.movieList.map {
