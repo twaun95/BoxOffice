@@ -2,6 +2,7 @@ package com.twaun95.data.repository
 
 import com.twaun95.data.model.boxoffice.DailyBoxOffice
 import com.twaun95.data.model.info.MovieInfo
+import com.twaun95.data.model.search.Movie
 import com.twaun95.data.remote.movie.MovieRemoteDataSource
 import com.twaun95.domain.model.entity.movie.BoxOfficeEntity
 import com.twaun95.domain.model.entity.movie.MovieEntity
@@ -36,6 +37,22 @@ class MovieRepositoryImpl @Inject constructor(
             if (response.isSuccessful) {
                 return Result.Success(response.body()!!.movieInfoResult.movieInfo.run {
                     MovieInfo.toMovieEntity(this)
+                })
+            } else {
+                Result.Fail(IllegalArgumentException("영화 정보 불러오기 실패."))
+            }
+        } catch (e: Exception) {
+            Result.Fail(e)
+        }
+    }
+
+    override suspend fun getMovies(movieName: String): Result<List<MovieEntity>> {
+        val response = movieRemoteDataSource.searchMovies(movieName = movieName)
+
+        return try {
+            if (response.isSuccessful) {
+                return Result.Success(response.body()!!.movieListResult.movieList.map {
+                    Movie.toMovieEntity(it)
                 })
             } else {
                 Result.Fail(IllegalArgumentException("영화 정보 불러오기 실패."))

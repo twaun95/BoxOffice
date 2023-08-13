@@ -8,4 +8,5 @@ import com.twaun95.domain.repository.Repository
 interface MovieRepository : Repository {
     suspend fun getBoxOffice(date: String): Result<List<BoxOfficeEntity>>
     suspend fun getMovieInfo(code: String): Result<MovieEntity>
+    suspend fun getMovies(movieName: String): Result<List<MovieEntity>>
 }

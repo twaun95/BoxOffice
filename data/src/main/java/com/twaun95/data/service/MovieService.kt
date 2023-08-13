@@ -2,6 +2,7 @@ package com.twaun95.data.service
 
 import com.twaun95.data.model.boxoffice.BoxOfficeResponse
 import com.twaun95.data.model.info.MovieInfoResult
+import com.twaun95.data.model.search.SearchMovieListResult
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -23,4 +24,10 @@ interface MovieService {
         @Query("key") key: String,
         @Query("movieCd") code: String
     ): Response<MovieInfoResult>
+
+    @GET("kobisopenapi/webservice/rest/movie/searchMovieList.xml")
+    suspend fun getMovies(
+        @Query("key") key: String,
+        @Query("movieNm") name: String
+    ): Response<SearchMovieListResult>
 }
