@@ -9,5 +9,6 @@ import retrofit2.Response
 interface MovieRemoteDataSource : RemoteDataSource {
     suspend fun getBoxOffice(date: String) : Response<BoxOfficeResponse>
     suspend fun getMovieInfo(code: String): Response<MovieInfoResult>
-    suspend fun searchMovies(movieName: String): Response<SearchMovieListResult>
+    suspend fun getSearchMovieList(movieName: String): Response<SearchMovieListResult>
+    
 }

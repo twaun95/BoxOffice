@@ -8,7 +8,6 @@ import com.twaun95.domain.model.entity.movie.BoxOfficeEntity
 import com.twaun95.domain.model.entity.movie.MovieEntity
 import com.twaun95.domain.model.Result
 import com.twaun95.domain.repository.movie.MovieRepository
-import timber.log.Timber
 import javax.inject.Inject
 import kotlin.Exception
 
@@ -50,7 +49,7 @@ class MovieRepositoryImpl @Inject constructor(
     override suspend fun getMovies(movieName: String): Result<List<MovieEntity>> {
         if (movieName.isEmpty()) return Result.Success(emptyList())
 
-        val response = movieRemoteDataSource.searchMovies(movieName = movieName)
+        val response = movieRemoteDataSource.getSearchMovieList(movieName = movieName)
         return try {
             if (response.isSuccessful) {
                 return Result.Success(response.body()!!.movieListResult.movieList.map {

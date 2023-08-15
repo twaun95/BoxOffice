@@ -26,7 +26,7 @@ class MovieRemoteDataSourceImpl @Inject constructor(
         )
     }
 
-    override suspend fun searchMovies(movieName: String): Response<SearchMovieListResult> {
+    override suspend fun getSearchMovieList(movieName: String): Response<SearchMovieListResult> {
         return movieService.getMovies(
             key = apiKey.key,
             name = movieName

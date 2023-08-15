@@ -6,7 +6,7 @@ import com.twaun95.domain.repository.movie.MovieRepository
 import com.twaun95.domain.usecase.UseCase
 import javax.inject.Inject
 
-class GetMovieInfoUseCase @Inject constructor(
+class GetMovieDetailUseCase @Inject constructor(
     private val movieRepository: MovieRepository
 ) : UseCase {
     suspend operator fun invoke(

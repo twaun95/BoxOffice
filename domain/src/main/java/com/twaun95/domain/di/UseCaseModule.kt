@@ -2,7 +2,7 @@ package com.twaun95.domain.di
 
 import com.twaun95.domain.repository.movie.MovieRepository
 import com.twaun95.domain.usecase.movie.GetBoxOfficeUseCase
-import com.twaun95.domain.usecase.movie.GetMovieInfoUseCase
+import com.twaun95.domain.usecase.movie.GetMovieDetailUseCase
 import com.twaun95.domain.usecase.movie.SearchMoviesUseCase
 import dagger.Module
 import dagger.Provides
@@ -22,8 +22,8 @@ object UseCaseModule {
 
     @Singleton
     @Provides
-    fun providesGetMovieInfoUseCase(repository: MovieRepository): GetMovieInfoUseCase {
-        return GetMovieInfoUseCase(repository)
+    fun providesGetMovieDetailUseCase(repository: MovieRepository): GetMovieDetailUseCase {
+        return GetMovieDetailUseCase(repository)
     }
 
     @Singleton
