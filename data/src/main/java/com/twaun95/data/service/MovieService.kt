@@ -2,15 +2,16 @@ package com.twaun95.data.service
 
 import com.twaun95.data.model.boxoffice.BoxOfficeResponse
 import com.twaun95.data.model.info.MovieInfoResult
-import com.twaun95.data.model.search.SearchMovieListResult
+import com.twaun95.data.model.search.movie.SearchMovieListResult
+import com.twaun95.data.model.search.people.SearchPeopleResult
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MovieService {
 
-    @GET("kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json")
-    suspend fun getBoxOffice(
+    @GET("boxoffice/searchDailyBoxOfficeList.json")
+    suspend fun getSearchDailyBoxOfficeList(
         @Query("key") key: String,
         @Query("targetDt") date: String,
         @Query("itemPerPage") page: String? = null,
@@ -19,15 +20,21 @@ interface MovieService {
         @Query("wideAreaCd") c: String? = null
     ): Response<BoxOfficeResponse>
 
-    @GET("kobisopenapi/webservice/rest/movie/searchMovieInfo.json")
-    suspend fun getMovieInfo(
+    @GET("movie/searchMovieInfo.json")
+    suspend fun getSearchMovieInfo(
         @Query("key") key: String,
         @Query("movieCd") code: String
     ): Response<MovieInfoResult>
 
-    @GET("kobisopenapi/webservice/rest/movie/searchMovieList.json")
-    suspend fun getMovies(
+    @GET("movie/searchMovieList.json")
+    suspend fun getSearchMovieList(
         @Query("key") key: String,
         @Query("movieNm") name: String
     ): Response<SearchMovieListResult>
+
+    @GET("people/searchPeopleList.json")
+    suspend fun getSearchPeopleList(
+        @Query("key") key: String,
+        @Query("peopleNm") name: String
+    ): Response<SearchPeopleResult>
 }

@@ -1,6 +1,5 @@
-package com.twaun95.data.model.search
+package com.twaun95.data.model.search.movie
 
-import com.twaun95.data.model.info.MovieInfo
 import com.twaun95.domain.model.entity.movie.MovieEntity
 
 data class Movie(
@@ -19,7 +18,7 @@ data class Movie(
     val typeNm: String
 ) {
     companion object {
-        fun toMovieEntity(movie: Movie) : MovieEntity {
+        fun toEntity(movie: Movie) : MovieEntity {
             return MovieEntity(
                 code = movie.movieCd,
                 name = movie.movieNm,

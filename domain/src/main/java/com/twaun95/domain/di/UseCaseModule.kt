@@ -4,6 +4,7 @@ import com.twaun95.domain.repository.movie.MovieRepository
 import com.twaun95.domain.usecase.movie.GetBoxOfficeUseCase
 import com.twaun95.domain.usecase.movie.GetMovieDetailUseCase
 import com.twaun95.domain.usecase.movie.SearchMoviesUseCase
+import com.twaun95.domain.usecase.people.SearchPeopleUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +31,11 @@ object UseCaseModule {
     @Provides
     fun provideSearchMoviesUseCase(repository: MovieRepository): SearchMoviesUseCase {
         return SearchMoviesUseCase(repository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideSearchPeopleUseCase(repository: MovieRepository): SearchPeopleUseCase {
+        return SearchPeopleUseCase(repository)
     }
 }
