@@ -11,9 +11,9 @@
         android:title="영화 검색"/>
 
     <item
-        android:id="@+id/searchActorFragment"
+        android:id="@+id/searchPeopleFragment"
         android:enabled="true"
-        android:title="배우 검색"/>
+        android:title="사람 검색"/>
 
     <item
         android:id="@+id/myMoviesFragment"

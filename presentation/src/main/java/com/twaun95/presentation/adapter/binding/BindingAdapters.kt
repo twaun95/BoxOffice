@@ -7,6 +7,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.FragmentActivity
+import com.twaun95.presentation.ui.search_actor.SearchPeopleFragmentViewModel
 import com.twaun95.presentation.ui.search_movie.SearchMovieFragmentViewModel
 
 @BindingAdapter("android:visibility")
@@ -21,6 +22,24 @@ fun setOnKeyBoardSearch(view: EditText, activity: FragmentActivity, fragmentVM: 
         when (actionId) {
             EditorInfo.IME_ACTION_SEARCH -> {
                 fragmentVM.searchMovie()
+                view.clearFocus()
+                val imm: InputMethodManager =
+                    activity.getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(v.windowToken, 0)
+            }
+            else -> {}
+        }
+        true
+    }
+}
+
+@BindingAdapter("android:activity", "android:onKeyBoardSearch")
+fun setOnKeyBoardSearch(view: EditText, activity: FragmentActivity, fragmentVM: SearchPeopleFragmentViewModel) {
+
+    view.setOnEditorActionListener { v, actionId, event ->
+        when (actionId) {
+            EditorInfo.IME_ACTION_SEARCH -> {
+                fragmentVM.searchPeople()
                 view.clearFocus()
                 val imm: InputMethodManager =
                     activity.getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager

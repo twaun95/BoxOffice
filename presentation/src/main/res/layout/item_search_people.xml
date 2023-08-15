@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.twaun95.domain.model.entity.movie.PeopleEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_dark_background">
+
+
+        <TextView
+            android:id="@+id/button_item"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@drawable/item_button"
+            android:text="@{@string/format_movie_title(data.name)}"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="영화이름" />
+
+        <TextView
+            android:id="@+id/tv_role"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="@{data.role}"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toRightOf="@id/button_item"
+            tools:text="역할" />
+
+        <TextView
+            android:id="@+id/tv_filmoList"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="@{data.filmoNames}"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintLeft_toRightOf="@id/tv_role"
+            tools:text="필모리스트" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

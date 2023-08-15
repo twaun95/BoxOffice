@@ -25,10 +25,10 @@
             app:destination="@id/movieDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/searchActorFragment"
-        android:name="com.twaun95.presentation.ui.search_actor.SearchActorFragment"
-        android:label="SearchActorFragment"
-        tools:layout="@layout/fragment_search_actor"/>
+        android:id="@+id/searchPeopleFragment"
+        android:name="com.twaun95.presentation.ui.search_actor.SearchPeopleFragment"
+        android:label="SearchPeopleFragment"
+        tools:layout="@layout/fragment_search_people"/>
     <fragment
         android:id="@+id/myMoviesFragment"
         android:name="com.twaun95.presentation.ui.my_movies.MyMoviesFragment"
