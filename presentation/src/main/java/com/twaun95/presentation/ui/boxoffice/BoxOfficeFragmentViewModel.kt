@@ -25,6 +25,10 @@ class BoxOfficeFragmentViewModel @Inject constructor(
     private val _dailyBoxOffices = MutableStateFlow(emptyList<BoxOfficeEntity>())
     val dailyBoxOffices: StateFlow<List<BoxOfficeEntity>> get() = _dailyBoxOffices
 
+    init {
+        getBoxOfficeList()
+    }
+
     fun getBoxOfficeList() {
         viewModelScope.launch {
             startLoading()

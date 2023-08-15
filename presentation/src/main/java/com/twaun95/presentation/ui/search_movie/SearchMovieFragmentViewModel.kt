@@ -23,6 +23,10 @@ class SearchMovieFragmentViewModel @Inject constructor(
 
     val inputSearch by lazy { MutableLiveData<String>("") }
 
+    init {
+        searchMovie()
+    }
+
     fun searchMovie() {
         viewModelScope.launch {
             startLoading()

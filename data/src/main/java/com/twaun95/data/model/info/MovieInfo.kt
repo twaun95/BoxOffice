@@ -24,6 +24,7 @@ data class MovieInfo(
     companion object {
         fun toMovieEntity(movieInfo: MovieInfo) : MovieEntity {
             return MovieEntity(
+                code = movieInfo.movieCd,
                 name = movieInfo.movieNm,
                 showTime = movieInfo.showTm,
                 openDate = movieInfo.openDt,

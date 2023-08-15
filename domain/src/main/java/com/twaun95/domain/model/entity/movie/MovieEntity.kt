@@ -3,6 +3,7 @@ package com.twaun95.domain.model.entity.movie
 import com.twaun95.domain.model.entity.Entity
 
 data class MovieEntity(
+    val code: String,
     val name: String,
     val showTime: String,
     val openDate: String,
@@ -12,6 +13,7 @@ data class MovieEntity(
     companion object {
         fun empty() : MovieEntity {
             return MovieEntity(
+                code = "",
                 name = "",
                 showTime = "",
                 openDate = "",

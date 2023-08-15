@@ -12,7 +12,6 @@ import com.twaun95.presentation.adapter.dailyBoxOffice.DailyBoxOfficeLayoutManag
 import com.twaun95.presentation.base.BaseFragment
 import com.twaun95.presentation.databinding.FragmentBoxofficeBinding
 import com.twaun95.presentation.ui.MainActivityViewModel
-import com.twaun95.presentation.ui.movie_detail.MovieDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -83,7 +82,5 @@ class BoxOfficeFragment :
 
     override fun onStart() {
         super.onStart()
-
-        fragmentVM.getBoxOfficeList()
     }
 }

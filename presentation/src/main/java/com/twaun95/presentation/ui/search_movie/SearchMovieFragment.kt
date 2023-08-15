@@ -1,8 +1,10 @@
 package com.twaun95.presentation.ui.search_movie
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.twaun95.presentation.R
 import com.twaun95.presentation.adapter.searchMovie.SearchMovieAdapter
 import com.twaun95.presentation.adapter.searchMovie.SearchMovieDecoration
@@ -25,7 +27,8 @@ class SearchMovieFragment :
     private val searchMovieAdapter by lazy {
         SearchMovieAdapter(
             onItemClickListener = { item ->
-                // 이동
+                val bundle = bundleOf("movieCode" to item.code)
+                findNavController().navigate(R.id.action_searchMovieFragment_to_movieDetailFragment, bundle)
             }
         )
     }
@@ -64,10 +67,5 @@ class SearchMovieFragment :
 
     override fun onStart() {
         super.onStart()
-        fragmentVM.searchMovie()
-    }
-
-    companion object {
-        fun getInstance(): SearchMovieFragment = SearchMovieFragment()
     }
 }
