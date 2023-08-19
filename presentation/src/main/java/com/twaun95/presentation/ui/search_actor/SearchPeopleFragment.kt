@@ -38,7 +38,7 @@ class SearchPeopleFragment :
         binding.fragmentVM = this.fragmentVM
 
         binding.rvSearch.apply {
-            layoutManager = SearchPeopleLayoutManager(requireContext())
+//            layoutManager = SearchPeopleLayoutManager(requireContext())
             addItemDecoration(SearchPeopleDecoration())
             adapter = searchPeopleAdapter
         }

@@ -15,7 +15,7 @@ data class People(
                 code = people.peopleCd,
                 name = people.peopleNm,
                 role = people.repRoleNm,
-                filmoNames = people.filmoNames
+                filmoNames = people.filmoNames.replace("|",", ")
             )
         }
     }

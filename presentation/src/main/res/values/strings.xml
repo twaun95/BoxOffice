@@ -5,6 +5,8 @@
     <string name="format_movie_date">[출시년도] %s</string>
     <string name="format_movie_time">[상영시간] %s분</string>
     <string name="format_movie_genre">[장르] %s</string>
+    <string name="format_people_line">[%s]</string>
+
 
     <string name="hint_search_movie">검색어를 입력해주세요.</string>
     <string name="hint_search_people">검색어를 입력해주세요.</string>

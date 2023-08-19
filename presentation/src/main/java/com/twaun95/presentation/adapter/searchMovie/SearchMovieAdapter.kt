@@ -41,7 +41,7 @@ class SearchMovieAdapter(
     ) : BaseViewHolder<MovieEntity>(binding.root) {
         override fun bind(data: MovieEntity) {
             binding.data = data
-            binding.buttonItem.setOnClickListener {
+            binding.layoutItem.setOnClickListener {
                 onClickListener.invoke(data)
             }
         }

@@ -66,6 +66,8 @@ class MovieRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getPeople(peopleName: String): Result<List<PeopleEntity>> {
+        if (peopleName.isEmpty()) return Result.Success(emptyList())
+
         val response = movieRemoteDataSource.getSearchPeople(peopleName = peopleName)
         return try {
             if (response.isSuccessful) {

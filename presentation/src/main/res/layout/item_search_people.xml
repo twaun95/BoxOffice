@@ -11,21 +11,24 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_item"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_dark_background">
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_button"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
 
         <TextView
-            android:id="@+id/button_item"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:background="@drawable/item_button"
-            android:text="@{@string/format_movie_title(data.name)}"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{data.name}"
             android:textColor="@color/white"
+            android:textStyle="bold"
             android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="영화이름" />
@@ -33,24 +36,33 @@
         <TextView
             android:id="@+id/tv_role"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:text="@{data.role}"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="@{@string/format_people_line(data.role)}"
+            android:textStyle="normal"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            app:layout_constraintLeft_toRightOf="@id/button_item"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_name"
+            app:layout_constraintLeft_toRightOf="@id/tv_name"
             tools:text="역할" />
 
         <TextView
             android:id="@+id/tv_filmoList"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="@{data.filmoNames}"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            app:layout_constraintLeft_toRightOf="@id/tv_role"
+            android:textSize="10dp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
             tools:text="필모리스트" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

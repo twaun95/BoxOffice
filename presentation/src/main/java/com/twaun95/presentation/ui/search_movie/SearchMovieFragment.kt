@@ -39,7 +39,6 @@ class SearchMovieFragment :
         binding.fragmentVM = fragmentVM
 
         binding.rvSearch.apply {
-            layoutManager = SearchMovieLayoutManager(requireContext())
             addItemDecoration(SearchMovieDecoration())
             adapter = searchMovieAdapter
         }

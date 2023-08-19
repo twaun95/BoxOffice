@@ -41,7 +41,7 @@ class SearchPeopleAdapter(
     ) : BaseViewHolder<PeopleEntity>(binding.root) {
         override fun bind(data: PeopleEntity) {
             binding.data = data
-            binding.buttonItem.setOnClickListener {
+            binding.layoutItem.setOnClickListener {
                 onClickListener.invoke(data)
             }
         }
