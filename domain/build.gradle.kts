@@ -37,18 +37,17 @@ android {
 }
 
 dependencies {
-
     implementation(Google.HILT_ANDROID)
     kapt(Google.HILT_ANDROID_COMPILER)
-
-    implementation(Libraries.TIMBER)
-
-    implementation(Libraries.RETROFIT)
-    implementation(Libraries.RETROFIT_CONVERTER_GSON)
-    implementation(Libraries.OKHTTP)
-    implementation(Libraries.OKHTTP_LOGGING_INTERCEPTOR)
 
     testImplementation(UnitTest.JUNIT)
     androidTestImplementation(AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
+
+    implementation(Libraries.TIMBER)
+    implementation(Libraries.RETROFIT)
+    implementation(Libraries.RETROFIT_CONVERTER_GSON)
+    implementation(Libraries.OKHTTP)
+    implementation(Libraries.OKHTTP_LOGGING_INTERCEPTOR)
+    implementation(AndroidX.PAGING_WITHOUT_ANDROID)
 }

@@ -40,23 +40,24 @@ android {
 dependencies {
     implementation(project(":domain"))
 
-    implementation(AndroidX.ACTIVITY)
-    implementation(AndroidX.FRAGMENT)
-    implementation(AndroidX.APP_COMPAT)
-    implementation(AndroidX.CORE_KTX)
-    implementation(Google.MATERIAL)
-    implementation(AndroidX.CONSTRAINT_LAYOUT)
-    implementation(AndroidX.VIEW_MODEL)
-    implementation(AndroidX.SWIPE_LAYOUT)
-    implementation(AndroidX.NAVIGATION)
-    implementation(AndroidX.NAVIGATION_UI)
-
     implementation(Google.HILT_ANDROID)
     kapt(Google.HILT_ANDROID_COMPILER)
 
     testImplementation(UnitTest.JUNIT)
     androidTestImplementation(AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
+
+    implementation(Google.MATERIAL)
+    implementation(AndroidX.ACTIVITY)
+    implementation(AndroidX.FRAGMENT)
+    implementation(AndroidX.APP_COMPAT)
+    implementation(AndroidX.CORE_KTX)
+    implementation(AndroidX.CONSTRAINT_LAYOUT)
+    implementation(AndroidX.VIEW_MODEL)
+    implementation(AndroidX.SWIPE_LAYOUT)
+    implementation(AndroidX.NAVIGATION)
+    implementation(AndroidX.NAVIGATION_UI)
+    implementation(AndroidX.PAGING)
 
     implementation(Libraries.TIMBER)
     implementation(Libraries.LOTTIE)
