@@ -27,10 +27,16 @@ class MovieRemoteDataSourceImpl @Inject constructor(
         )
     }
 
-    override suspend fun getSearchMovies(movieName: String): Response<SearchMovieListResult> {
+    override suspend fun searchMovieList(
+        movieName: String,
+        page: Int,
+        pageSize: Int
+    ): Response<SearchMovieListResult> {
         return movieService.getSearchMovieList(
             key = apiKey.key,
-            name = movieName
+            movieName = movieName,
+            currentPage = page.toString(),
+            itemSizePerPage = pageSize.toString()
         )
     }
 

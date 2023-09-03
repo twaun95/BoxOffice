@@ -9,6 +9,6 @@ import com.twaun95.domain.repository.Repository
 interface MovieRepository : Repository {
     suspend fun getBoxOffice(date: String): Result<List<BoxOfficeEntity>>
     suspend fun getMovieInfo(code: String): Result<MovieEntity>
-    suspend fun getMovies(movieName: String): Result<List<MovieEntity>>
+    suspend fun getMovies(movieName: String, page: Int, pageSize: Int): Result<List<MovieEntity>>
     suspend fun getPeople(peopleName: String): Result<List<PeopleEntity>>
 }

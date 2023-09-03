@@ -29,7 +29,9 @@ interface MovieService {
     @GET("movie/searchMovieList.json")
     suspend fun getSearchMovieList(
         @Query("key") key: String,
-        @Query("movieNm") name: String
+        @Query("movieNm") movieName: String,
+        @Query("curPage") currentPage: String,
+        @Query("itemPerPage") itemSizePerPage: String
     ): Response<SearchMovieListResult>
 
     @GET("people/searchPeopleList.json")
